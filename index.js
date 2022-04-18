@@ -1,17 +1,13 @@
 const express = require('express');
 const app = express ();
-const {readData,writeData} = require('./utils/db.utils')
-app.get('/',async (req,res)=>{
-    try{
-        const student = await readData()
-        return res.status(200).send(student)
-    }
-    catch(err){
-        return res.status(500).send({
-            error : err
-        })
-    }
-});
+const studentRouter = require('./routes/student.routes')
+
+//middleware
+app.use(express.json()); // parse data receives from user
+
+// connecting router 
+app.use('/api',studentRouter);
+
 app.listen(3000,()=>{
     console.log('Listening on port 3000');
-})
+})  

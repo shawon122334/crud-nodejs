@@ -12,7 +12,7 @@ module.exports.writeData = ({data}) =>{
     return new Promise ((resolve, reject) =>{
         fs.writeFile('./db/db.student.json',JSON.stringify(data),(err)=>{
             if (err) reject(err)
-            else resolve('successfully data written')
+            else resolve('success')
         })
     })
 }
