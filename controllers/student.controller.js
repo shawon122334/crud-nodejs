@@ -1,3 +1,5 @@
+// request response controllers
+
 const {readData,writeData} = require('../utils/db.utils')
 
 const getData = async (req,res)=>{
